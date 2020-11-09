@@ -2,14 +2,14 @@ package com.tts.ecommercepage.repositories;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 import com.tts.ecommercepage.model.Product;
 
-import org.springframework.stereotype.Repository;
-
 @Repository
-    public interface ProductRepository extends CrudRepository<Product, Long> {
+public interface ProductRepository extends CrudRepository<Product, Long> {
         List<Product> findAll();
         Product findById(long id);
         List<Product> findByBrand(String brand);
@@ -21,4 +21,4 @@ import org.springframework.stereotype.Repository;
  
         @Query("SELECT DISTINCT p.category FROM Product p")
         List<String> findDistinctCategories();
-}
+    }

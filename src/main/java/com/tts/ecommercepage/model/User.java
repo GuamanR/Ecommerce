@@ -1,7 +1,6 @@
 package com.tts.ecommercepage.model;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.persistence.Column;
@@ -46,8 +45,10 @@ public class User implements UserDetails {
 
 	// this converts the map into a table
 	@ElementCollection
-	private Map <Product, Integer> cart = new HashMap<>();
+	private Map <Product, Integer> cart;
+	public User(){
 
+	}
 	
 	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -78,6 +79,14 @@ public class User implements UserDetails {
     // TODO Auto-generated method stub
     return true;
     }
+
+	
+
+	@Override
+	public String toString() {
+		return "User [cart=" + cart + ", email=" + email + ", firstName=" + firstName + ", id=" + id + ", lastName="
+				+ lastName + ", password=" + password + ", username=" + username + "]";
+	}
 
 	public Long getId() {
 		return id;
@@ -133,12 +142,6 @@ public class User implements UserDetails {
 
 	public void setCart(Map<Product, Integer> cart) {
 		this.cart = cart;
-	}
-
-	@Override
-	public String toString() {
-		return "User [cart=" + cart + ", email=" + email + ", firstName=" + firstName + ", id=" + id + ", lastName="
-				+ lastName + ", password=" + password + ", username=" + username + "]";
 	}
 
 

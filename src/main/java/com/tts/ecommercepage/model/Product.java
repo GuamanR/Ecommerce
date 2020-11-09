@@ -1,10 +1,12 @@
 package com.tts.ecommercepage.model;
 
+import javax.persistence.Entity;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Product {
 
     @Id
@@ -17,8 +19,8 @@ public class Product {
     private String description;
     private String name;
     private String brand;
-    private String catergory;
-    private String img;
+    private String category;
+    private String imgURL;
 
 
 	public Long getId() {
@@ -57,22 +59,24 @@ public class Product {
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
-	public String getCatergory() {
-		return catergory;
+	
+	public String getimgURL() {
+		return imgURL;
 	}
-	public void setCatergory(String catergory) {
-		this.catergory = catergory;
-	}
-	public String getImg() {
-		return img;
-	}
-	public void setImg(String img) {
-		this.img = img;
+	public void setimgURL(String imgURL) {
+		this.imgURL = imgURL;
     }
+	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	@Override
 	public String toString() {
-		return "Product [brand=" + brand + ", catergory=" + catergory + ", description=" + description + ", id=" + id
-				+ ", img=" + img + ", name=" + name + ", price=" + price + ", quantity=" + quantity + "]";
+		return "Product [brand=" + brand + ", category=" + category + ", description=" + description + ", id=" + id
+				+ ", imgURL=" + imgURL + ", name=" + name + ", price=" + price + ", quantity=" + quantity + "]";
 	}
     
     

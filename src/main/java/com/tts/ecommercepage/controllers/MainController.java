@@ -23,6 +23,7 @@ public class MainController {
     public String main() {
         return "main";
     }
+    
 
     @ModelAttribute("products")
     public List<Product> products() {
